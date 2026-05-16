@@ -33,6 +33,6 @@ public class Insurance {
     private LocalDateTime createAt;
 
 
-    @OneToOne
+    @OneToOne(mappedBy = "insurance")
     private Patient patient;
 }

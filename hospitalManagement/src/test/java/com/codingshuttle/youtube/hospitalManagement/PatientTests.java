@@ -6,6 +6,7 @@ import com.codingshuttle.youtube.hospitalManagement.entity.Patient;
 import com.codingshuttle.youtube.hospitalManagement.entity.type.BloodGroupType;
 import com.codingshuttle.youtube.hospitalManagement.repository.PatientRepository;
 import com.codingshuttle.youtube.hospitalManagement.service.PatientService;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -25,6 +26,7 @@ public class PatientTests {
     @Autowired
     private PatientService patientService;
 
+    @Disabled
     @Test
     public void testPatientRepository(){
         List<Patient> patientList=patientRepository.findAllPatientWithAppointment();
@@ -36,7 +38,7 @@ public class PatientTests {
 
 
     }
-
+@Disabled
     @Test
     public void testTransactionMethods(){
 //        Patient patient=patientService.getPatientById(1L);

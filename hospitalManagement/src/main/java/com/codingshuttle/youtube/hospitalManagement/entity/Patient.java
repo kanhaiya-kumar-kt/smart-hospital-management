@@ -3,9 +3,7 @@ package com.codingshuttle.youtube.hospitalManagement.entity;
 
 import com.codingshuttle.youtube.hospitalManagement.entity.type.BloodGroupType;
 import jakarta.persistence.*;
-import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
 import java.time.LocalDate;
@@ -26,22 +24,29 @@ import java.util.List;
                 @Index(name = "idx_patient_birthdate", columnList = "birth_date")
         }
 )
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(nullable = false, length = 40)
+    @Column(nullable = true, length = 40)
     private String name;
 
-    @ToString.Exclude
+//    @ToString.Exclude
     private LocalDate birthDate;
 
     @Column(unique = true, nullable = false)
     private String email;
 
     private String gender;
+
+    @OneToOne
+    @MapsId
+    private User user;
 
     @CreationTimestamp
     @Column(updatable = false)

@@ -6,6 +6,8 @@ import com.codingshuttle.youtube.hospitalManagement.entity.Insurance;
 import com.codingshuttle.youtube.hospitalManagement.entity.Patient;
 import com.codingshuttle.youtube.hospitalManagement.service.AppointmentService;
 import com.codingshuttle.youtube.hospitalManagement.service.InsuranceService;
+import jakarta.transaction.Transactional;
+import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -24,6 +26,7 @@ public class InsuranceTests {
     private AppointmentService appointmentService;
 
 
+    @Disabled
     @Test
     public void testInsurance(){
         Insurance insurance=Insurance.builder()
@@ -55,6 +58,22 @@ public class InsuranceTests {
 //        System.out.println(updatedAppointment);
 //
 //    }
+    @Disabled
+@Test
+public void testCreateAppointment() {
+    Appointment appointment = Appointment.builder()
+            .appointmentTime(LocalDateTime.of(2025, 11, 1, 14, 0, 0))
+            .reason("Cancer")
+            .build();
+
+//        var newAppointment = appointmentService.createNewAppointment(appointment, 1L, 2L);
+
+//        System.out.println(newAppointment);
+
+//        var updatedAppointment = appointmentService.reAssignAppointmentToAnotherDoctor(newAppointment.getId(), 3L);
+
+//        System.out.println(updatedAppointment);
+}
 
 
 

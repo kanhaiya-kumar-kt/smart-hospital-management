@@ -9,7 +9,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.nio.file.AccessDeniedException;
+import org.springframework.security.access.AccessDeniedException;
+
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
@@ -38,7 +39,7 @@ public class GlobalExceptionHandler {
         return new ResponseEntity<>(apiError,HttpStatus.FORBIDDEN);
 
     }
-    @ExceptionHandler(Exception.class)
+    @ExceptionHandler
     public ResponseEntity<ApiError> handleUsernameNotFoundException(Exception ex){
         ApiError apiError =new ApiError("An unexpected error occurred: "+ex.getMessage(), HttpStatus.INTERNAL_SERVER_ERROR);
         return new ResponseEntity<>(apiError,HttpStatus.INTERNAL_SERVER_ERROR);
